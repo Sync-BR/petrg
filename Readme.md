@@ -10,7 +10,7 @@ Para utilizar essa API, você tem duas opções:
 # Configurações para Manipulação de Usuários.
 Esta seção descreve como configurar e utilizar a API para realizar operações relacionadas aos usuários, como criação, atualização, exclusão e consulta.
 
-Para obter mais detalhes técnicos e exemplos de requisições sobre o funcionamento da API de usuários, [clique aqui](https://)
+Para obter mais detalhes técnicos e exemplos de requisições sobre o funcionamento da API de usuários, [clique aqui](https://github.com/Sync-BR/petrg/blob/main/documentation/usuario.md)
 
 #
 
@@ -26,4 +26,4 @@ To use this API, you have two options:
 # User Management Configurations
 This section describes how to configure and use the API to perform operations related to users, such as creating, updating, deleting, and querying users.
 
-For more technical details and request examples on how the user API works, [click here](https://).
+For more technical details and request examples on how the user API works, [click here](https://github.com/Sync-BR/petrg/blob/main/documentation/usuario.md).

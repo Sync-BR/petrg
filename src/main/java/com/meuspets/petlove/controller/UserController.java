@@ -19,7 +19,6 @@
         //Create user api
         @PostMapping("/create/user{login}/pass{password}")
         public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user, @PathVariable String login, @PathVariable String password) throws UsuarioHanding {
-            System.out.println(user.getDatOfBirth());
             LoginModel userLogin = new LoginModel(login, password);
             if (check(userLogin)) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

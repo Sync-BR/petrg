@@ -7,15 +7,13 @@ Esta seção descreve como registrar um novo usuário na API. Para realizar a op
     Requisição: POST
 
 ```json
- { 
-    "name": "João",
-    "surName": "Silva", 
-    "email": "joao.silva@example.com", 
-    "cpf": "123.456.789-10", 
-    "telephone": "(71) 99999-9999", 
-    "datOfBirth": "1990-01-01", 
-    "username": "joaosilva", 
-    "password": "senhaSegura123" 
- }
+    {
+      "name": "Eduardo Freitas",
+      "surName": "SYNC2",
+      "email": "letdowncsf@gmail.com",
+      "cpf": "061.260.395",
+      "telephone": "7133910114",
+      "datOfBirth": "2024-10-11T14:40:08"
+    }
   ```
 

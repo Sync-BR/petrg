@@ -3,6 +3,8 @@ package com.meuspets.petlove.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.logging.SimpleFormatter;
+
 @Entity(name = "Usuarios")
 @Table(name =  "usuarios",schema = "petrg")
 public class UsuarioModel {
@@ -19,19 +21,17 @@ public class UsuarioModel {
     private String cpf;
     @Column(name = "telephone", nullable = false)
     private String telephone;
-    @Column(name = "datOfBirth", nullable = false)
+    @Column(name = "date", nullable = false)
     private Date datOfBirth;
     // Other variables //
-    private String username;
-    private String password;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "login_id", referencedColumnName = "id")
+    private LoginModel login;
 
     public UsuarioModel() {
+//        datOfBirth = new Date();
     }
 
-    public UsuarioModel(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 
     @Override
     public String toString() {
@@ -42,8 +42,6 @@ public class UsuarioModel {
                 ", cpf='" + cpf + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", datOfBirth=" + datOfBirth +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -95,19 +93,19 @@ public class UsuarioModel {
         this.datOfBirth = datOfBirth;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
-    public String getPassword() {
-        return password;
+    public LoginModel getLogin() {
+        return login;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLogin(LoginModel login) {
+        this.login = login;
     }
 }

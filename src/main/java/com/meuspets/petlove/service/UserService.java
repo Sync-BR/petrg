@@ -1,17 +1,16 @@
 package com.meuspets.petlove.service;
 
 import com.meuspets.petlove.handling.UsuarioHanding;
+import com.meuspets.petlove.model.LoginModel;
 import com.meuspets.petlove.model.UsuarioModel;
+
 
 public class UserService {
 
-    public static void main(String[] args) throws UsuarioHanding {
-        UserService service = new UserService();
-        UsuarioModel user = new UsuarioModel("a", "a");
-        service.check(user);
-    }
-
-    public boolean check(UsuarioModel user) throws UsuarioHanding {
+    /*
+     *This function checks if all fields are null and handles the error.
+     */
+    public boolean check(LoginModel user) throws UsuarioHanding {
         if (checkNullUser(user)) {
             checkNullUserName(user.getUsername());
             checkNullPassword(user.getPassword());
@@ -22,25 +21,21 @@ public class UserService {
         return true;
 
     }
-
-
-    //Check if user values are null
-    //If null, return true
-    public boolean checkNullUser(UsuarioModel user) throws UsuarioHanding {
-        if (user.getUsername().isBlank() && user.getPassword().isBlank()) {
+    //Check if the login and password are null.
+    public boolean checkNullUser(LoginModel user) throws UsuarioHanding {
+        if (user.getUsername().isEmpty() && user.getPassword().isEmpty()) {
             return false;
         }
         return true;
-        // throw new UsuarioHanding("O usuário e a senha não podem estar vazios.");
 
     }
-
+    //Check if the user is null.
     public boolean checkNullUserName(String user) throws UsuarioHanding {
         if (!user.isEmpty())
             return false;
         throw new UsuarioHanding("Usuario não pode ser nullo");
     }
-
+    //Check if the password is null.
     public boolean checkNullPassword(String password) throws UsuarioHanding {
         if (!password.isEmpty())
             return false;

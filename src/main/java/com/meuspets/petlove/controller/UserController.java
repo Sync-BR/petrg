@@ -17,10 +17,10 @@
         private UsuarioRepository usuarioRepository;
 
         //Create user api
-        @PostMapping("/create/user{login}/pass{password}")
-        public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user, @PathVariable String login, @PathVariable String password) throws UsuarioHanding {
-            System.out.println(user.getDatOfBirth());
-            LoginModel userLogin = new LoginModel(login, password);
+        @PostMapping("/create/user")
+        public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user) throws UsuarioHanding {
+            LoginModel userLogin = new LoginModel(user.getLogin().getUsername(),user.getLogin().getPassword());
+            System.out.println(userLogin);
             if (check(userLogin)) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             } else if (!check(userLogin)) {

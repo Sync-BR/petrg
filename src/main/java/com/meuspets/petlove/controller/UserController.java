@@ -16,14 +16,11 @@
         @Autowired
         private UsuarioRepository usuarioRepository;
 
-        //Create user api
+        @CrossOrigin(origins = "http://localhost:4200")
         @PostMapping("/create/user")
         public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user) throws UsuarioHanding {
             LoginModel userLogin = new LoginModel(user.getLogin().getUsername(),user.getLogin().getPassword());
-            System.out.println(userLogin);
-            if (check(userLogin)) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            } else if (!check(userLogin)) {
+            if (!check(userLogin)) {
                 user.setLogin(userLogin);
                 usuarioRepository.save(user);
                 return new ResponseEntity<>(HttpStatus.CREATED);

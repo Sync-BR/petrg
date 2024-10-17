@@ -11,7 +11,7 @@ requisição POST com o corpo no formato JSON, conforme o exemplo abaixo.
 ```json
 {
   "name": "Eduardo Freitas",
-  "surName": "SYNC2",
+  "surname": "SYNC2",
   "email": "letdowncsf@gmail.com",
   "cpf": "061.260.395",
   "telephone": "7133910114",

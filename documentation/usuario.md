@@ -11,10 +11,10 @@ requisição POST com o corpo no formato JSON, conforme o exemplo abaixo.
 ```json
 {
   "name": "Eduardo Freitas",
-  "surname": "SYNC2",
-  "email": "letdowncsf@gmail.com",
-  "cpf": "061.260.395",
-  "telephone": "7133910114",
+  "surname": "SYNC",
+  "email": "Exemple@exemple.com",
+  "cpf": "000.000.000-00",
+  "telephone": "7133910000",
   "datOfBirth": "2024-10-11T14:40:08",
       "login":{
         "username":"tesea",
@@ -23,7 +23,7 @@ requisição POST com o corpo no formato JSON, conforme o exemplo abaixo.
 }
   ```
 
-## Autenticação de usuario.
+## Autenticação de usuário.
 Esta seção descreve a autenticação de um usuário na API. Para realizar a autenticação, envie uma requisição POST com o corpo no formato JSON, conforme o exemplo abaixo.
     http://127.0.0.1:8080/api/login/authenticate
     Requisição: POST

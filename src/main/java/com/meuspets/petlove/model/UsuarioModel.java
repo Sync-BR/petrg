@@ -3,7 +3,6 @@ package com.meuspets.petlove.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 @Entity(name = "Usuarios")
 @Table(name =  "usuarios",schema = "petrg")
@@ -14,7 +13,7 @@ public class UsuarioModel {
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "surname", nullable = true)
-    private String surName;
+    private String surname;
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "cpf", nullable = false)
@@ -97,11 +96,11 @@ public class UsuarioModel {
     }
 
     public String getSurName() {
-        return surName;
+        return surname;
     }
 
     public void setSurName(String surName) {
-        this.surName = surName;
+        this.surname = surName;
     }
 
     public LoginModel getLogin() {

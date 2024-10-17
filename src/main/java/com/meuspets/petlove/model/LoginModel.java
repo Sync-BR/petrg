@@ -18,10 +18,11 @@ public class LoginModel {
 
     }
 
-    public LoginModel(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public LoginModel(UsuarioModel user) {
+        this.username = user.getLogin().getUsername();
+        this.password = user.getLogin().getPassword();
     }
+
 
     @Override
     public String toString() {

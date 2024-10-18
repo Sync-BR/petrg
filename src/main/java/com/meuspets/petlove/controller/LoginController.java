@@ -15,7 +15,7 @@ public class LoginController extends UserService {
     @Autowired
     private LoginRepository loginRepository;
 
-    @CrossOrigin(origins = "177.208.2.93:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/authenticate")
     public ResponseEntity<HttpStatus> login(@RequestBody LoginModel login) throws UsuarioHanding {
         if (!check(login)) {

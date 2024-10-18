@@ -28,12 +28,8 @@ public class UsuarioModel {
     private LoginModel login;
 
     public UsuarioModel() {
-//        datOfBirth = new Date();
     }
 
-    public UsuarioModel(LoginModel login) {
-        this.login = login;
-    }
 
     @Override
     public String toString() {

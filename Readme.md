@@ -3,7 +3,7 @@ Bem-vindo à documentação da API Pet RG! Este documento fornecerá as instruç
 
 ## Como usar
 Para utilizar essa API, você tem duas opções:
-* Baixar o projeto front-end existente: Caso prefira usar uma interface pronta, faça o download do projeto front-end associado à API clicando [aqui](https://github.com/YannDarkz).
+* Baixar o projeto front-end existente: Caso prefira usar uma interface pronta, faça o download do projeto front-end associado à API clicando [aqui](https://github.com/YannDarkz/PetRG).
 
 * Desenvolver seu próprio front-end: Se desejar criar sua própria interface, siga as instruções e exemplos de uso abaixo para integrar corretamente com a API.
 
@@ -19,7 +19,7 @@ Welcome to the **Pet RG API** documentation! This document provides the necessar
 
 ## How to Use
 To use this API, you have two options:
-* **Download the existing front-end project**: If you prefer to use a ready-made interface, download the front-end project associated with the API by clicking [here](https://github.com/YannDarkz).
+* **Download the existing front-end project**: If you prefer to use a ready-made interface, download the front-end project associated with the API by clicking [here](https://github.com/YannDarkz/PetRG).
 
 * **Develop your own front-end**: If you'd like to create your own interface, follow the instructions and usage examples below to properly integrate with the API.
 

@@ -4,7 +4,7 @@ Bem-vindo à documentação da API Pet RG! Este documento fornecerá as instruç
 ## Como usar
 Para utilizar essa API, você tem duas opções:
 * Baixar o projeto front-end existente: Caso prefira usar uma interface pronta, faça o download do projeto front-end associado à API clicando [aqui](https://github.com/YannDarkz/PetRG).
-
+* Baixar o projeto android existente: Caso prefira usar uma interface pronta, faça o download do projeto backend associado à API clicando [aqui](https://github.com/Sync-BR/PetRgMobile).
 * Desenvolver seu próprio front-end: Se desejar criar sua própria interface, siga as instruções e exemplos de uso abaixo para integrar corretamente com a API.
 
 ## Configurações para Manipulação de Usuários.

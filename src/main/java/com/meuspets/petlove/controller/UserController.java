@@ -21,8 +21,14 @@ public class UserController extends UserService {
 
     @GetMapping("/check/email/{email}")
     public ResponseEntity<Boolean> checkEmail(@PathVariable String email) {
-        System.out.println(email);
         if (registrationData.validEmail(email)) {
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(false, HttpStatus.OK);
+    }
+    @GetMapping("/check/cpf/{cpf}")
+    public ResponseEntity<Boolean> checkCpf(@PathVariable String cpf) {
+        if (registrationData.validCpf(cpf)) {
             return new ResponseEntity<>(true, HttpStatus.OK);
         }
         return new ResponseEntity<>(false, HttpStatus.OK);

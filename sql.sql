@@ -1,3 +1,5 @@
+
+
 CREATE SCHEMA `petrg`;
 
 CREATE TABLE `petrg`.`logins`
@@ -5,7 +7,7 @@ CREATE TABLE `petrg`.`logins`
     `id`       INT AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    UNIQUE (`usernamef`),
+    UNIQUE (`username`)
 );
 
 CREATE TABLE `petrg`.`usuarios`

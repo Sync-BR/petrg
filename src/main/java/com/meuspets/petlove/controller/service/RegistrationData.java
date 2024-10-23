@@ -16,4 +16,8 @@ public class RegistrationData {
         UsuarioModel existingUser = usuarioRepository.findByEmail(email);
         return existingUser != null;
     }
+    public boolean validCpf(String cpf) {
+        UsuarioModel existingUser = usuarioRepository.findByCpf(cpf);
+        return existingUser != null;
+    }
 }

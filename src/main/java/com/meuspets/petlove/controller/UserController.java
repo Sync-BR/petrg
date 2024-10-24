@@ -4,6 +4,7 @@ import com.meuspets.petlove.controller.service.RegistrationData;
 import com.meuspets.petlove.handling.UsuarioHanding;
 import com.meuspets.petlove.model.LoginModel;
 import com.meuspets.petlove.model.UsuarioModel;
+import com.meuspets.petlove.repository.LoginRepository;
 import com.meuspets.petlove.repository.UsuarioRepository;
 import com.meuspets.petlove.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user")
 public class UserController extends UserService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired

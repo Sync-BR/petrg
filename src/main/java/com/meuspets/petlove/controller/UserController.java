@@ -3,6 +3,7 @@ package com.meuspets.petlove.controller;
 import com.meuspets.petlove.controller.service.RegistrationData;
 import com.meuspets.petlove.handling.UsuarioHanding;
 import com.meuspets.petlove.model.LoginModel;
+import com.meuspets.petlove.model.PetModel;
 import com.meuspets.petlove.model.UsuarioModel;
 import com.meuspets.petlove.repository.LoginRepository;
 import com.meuspets.petlove.repository.UsuarioRepository;
@@ -21,6 +22,7 @@ public class UserController extends UserService {
     @Autowired
     private RegistrationData registrationData;
 
+
     @GetMapping("/check/email/{email}")
     public ResponseEntity<Boolean> checkEmail(@PathVariable String email) {
         if (registrationData.validEmail(email)) {
@@ -28,6 +30,7 @@ public class UserController extends UserService {
         }
         return new ResponseEntity<>(false, HttpStatus.OK);
     }
+
     @GetMapping("/check/cpf/{cpf}")
     public ResponseEntity<Boolean> checkCpf(@PathVariable String cpf) {
         if (registrationData.validCpf(cpf)) {
@@ -39,6 +42,7 @@ public class UserController extends UserService {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/create/user")
     public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user) throws UsuarioHanding {
+        System.out.println(user);
         LoginModel userLogin = new LoginModel(user);
         if (!check(userLogin)) {
             user.setLogin(userLogin);

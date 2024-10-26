@@ -1,7 +1,9 @@
 package com.meuspets.petlove.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity(name = "Usuarios")
@@ -20,12 +22,14 @@ public class UsuarioModel {
     private String cpf;
     @Column(name = "telephone", nullable = false)
     private String telephone;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @Column(name = "date", nullable = false)
-    private Date datOfBirth;
+    private LocalDate datOfBirth;
     // Other variables //
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "login_id", referencedColumnName = "id")
     private LoginModel login;
+
 
     public UsuarioModel() {
     }
@@ -59,6 +63,14 @@ public class UsuarioModel {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -83,20 +95,12 @@ public class UsuarioModel {
         this.telephone = telephone;
     }
 
-    public Date getDatOfBirth() {
+    public LocalDate getDatOfBirth() {
         return datOfBirth;
     }
 
-    public void setDatOfBirth(Date datOfBirth) {
+    public void setDatOfBirth(LocalDate datOfBirth) {
         this.datOfBirth = datOfBirth;
-    }
-
-    public String getSurName() {
-        return surname;
-    }
-
-    public void setSurName(String surName) {
-        this.surname = surName;
     }
 
     public LoginModel getLogin() {
@@ -106,4 +110,6 @@ public class UsuarioModel {
     public void setLogin(LoginModel login) {
         this.login = login;
     }
+
+
 }

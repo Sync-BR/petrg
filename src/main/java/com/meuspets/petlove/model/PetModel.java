@@ -2,16 +2,19 @@ package com.meuspets.petlove.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.meuspets.petlove.model.Pet.VaccineModel;
+import enums.CatBreedEnums;
 import enums.DogsEnums;
 import enums.LifeAnimalsEnum;
 import enums.TypeAnimals;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "PetModel")
-@Table(name =  "pets",schema = "petrg")
+@Table(name = "pets", schema = "petrg")
 public class PetModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,46 +26,58 @@ public class PetModel {
     @Column(name = "age_pet", nullable = false)
     private int agePet;
     @Column(name = "race", nullable = false)
-    private DogsEnums race;
+    private String race;
+    @Transient
+    @Enumerated(EnumType.STRING) // ou EnumType.ORDINAL
+    private DogsEnums dogRace;
+    @Transient
+    @Enumerated(EnumType.STRING) // ou EnumType.ORDINAL
+    private CatBreedEnums catRace;
     @Column(name = "type_animal", nullable = false)
+    @Enumerated(EnumType.STRING) // ou EnumType.ORDINAL
     private TypeAnimals typeAnimal;
     @Column(name = "weight_pet", nullable = false)
     private Double weightPet;
-    @Column(name = "observation", nullable = false)
+    @Column(name = "observation", nullable = true)
     private String observation;
     @Column(name = "photo", nullable = false)
     private String photo;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @Column(name = "castrated_date", nullable = false)
+    @Column(name = "castrated_date", nullable = true)
     private LocalDate castratedDate;
-    @Column(name = "life_animal", nullable = false)
+    @Column(name = "life_animal", nullable = true)
     private LifeAnimalsEnum lifeAnimal;
 
+
     public PetModel() {
+
     }
 
 
-
-    public PetModel(int id,String namePet, int agePet, DogsEnums race, TypeAnimals typeAnimal, Double weightPet, String observation, String photo, LocalDate castratedDate, LifeAnimalsEnum lifeAnimal) {
-        this.id_usuario = id;
-        this.namePet = namePet;
-        this.agePet = agePet;
-        this.race = race;
-        this.typeAnimal = typeAnimal;
-        this.weightPet = weightPet;
-        this.observation = observation;
-        this.photo = photo;
+    public PetModel(LocalDate castratedDate, String photo, String observation, Double weightPet, TypeAnimals typeAnimal, CatBreedEnums catRace, DogsEnums dogRace, String race, int agePet, String namePet, int id_usuario) {
         this.castratedDate = castratedDate;
-        this.lifeAnimal = lifeAnimal;
+        this.photo = photo;
+        this.observation = observation;
+        this.weightPet = weightPet;
+        this.typeAnimal = typeAnimal;
+        this.catRace = catRace;
+        this.dogRace = dogRace;
+        this.race = race;
+        this.agePet = agePet;
+        this.namePet = namePet;
+        this.id_usuario = id_usuario;
     }
 
     @Override
     public String toString() {
         return "PetModel{" +
                 "id=" + id +
+                ", id_usuario=" + id_usuario +
                 ", namePet='" + namePet + '\'' +
                 ", agePet=" + agePet +
-                ", race=" + race +
+                ", race='" + race + '\'' +
+                ", dogRace=" + dogRace +
+                ", catRace=" + catRace +
                 ", typeAnimal=" + typeAnimal +
                 ", weightPet=" + weightPet +
                 ", observation='" + observation + '\'' +
@@ -96,11 +111,32 @@ public class PetModel {
         this.agePet = agePet;
     }
 
-    public DogsEnums getRace() {
+
+
+    public DogsEnums getDogRace() {
+        return dogRace;
+
+    }
+
+    public void setDogRace(DogsEnums dogRace) {
+        this.race = dogRace.getRace();
+        this.dogRace = dogRace;
+    }
+
+    public CatBreedEnums getCatRace() {
+        return catRace;
+    }
+
+    public void setCatRace(CatBreedEnums catRace) {
+        this.race = catRace.getRace();
+        this.catRace = catRace;
+    }
+
+    public String getRace() {
         return race;
     }
 
-    public void setRace(DogsEnums race) {
+    public void setRace(String race) {
         this.race = race;
     }
 
@@ -159,4 +195,6 @@ public class PetModel {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
+
+
 }

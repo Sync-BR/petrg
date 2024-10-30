@@ -3,6 +3,7 @@ package com.meuspets.petlove.controller;
 import com.meuspets.petlove.controller.service.RegistrationData;
 import com.meuspets.petlove.handling.UsuarioHanding;
 import com.meuspets.petlove.model.LoginModel;
+import com.meuspets.petlove.model.UsuarioModel;
 import com.meuspets.petlove.repository.LoginRepository;
 import com.meuspets.petlove.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public class LoginController extends UserService {
             return new ResponseEntity<>(true, HttpStatus.OK);
         }
         return new ResponseEntity<>(false, HttpStatus.OK);
+    }
+    @GetMapping("/getUserById/{username}")
+    public ResponseEntity<LoginModel> getUser(@PathVariable String username) {
+        LoginModel loginModel = loginRepository.findByUsername(username);
+        System.out.println(loginModel);
+        return new ResponseEntity<>(loginModel, HttpStatus.OK);
     }
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/authenticate")

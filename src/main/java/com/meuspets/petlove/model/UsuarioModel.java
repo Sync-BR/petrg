@@ -1,6 +1,8 @@
 package com.meuspets.petlove.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -28,6 +30,7 @@ public class UsuarioModel {
     // Other variables //
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "login_id", referencedColumnName = "id")
+    @JsonBackReference
     private LoginModel login;
 
 

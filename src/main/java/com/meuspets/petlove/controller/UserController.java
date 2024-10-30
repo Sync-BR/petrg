@@ -39,6 +39,8 @@ public class UserController extends UserService {
         return new ResponseEntity<>(false, HttpStatus.OK);
     }
 
+
+
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/create/user")
     public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user) throws UsuarioHanding {

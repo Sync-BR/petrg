@@ -1,5 +1,6 @@
 package com.meuspets.petlove.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity(name = "loginModel")
@@ -12,7 +13,9 @@ public class LoginModel {
     private String username;
     @Column( name = "password",nullable = false)
     private String password;
-    @OneToOne(mappedBy = "login")
+    @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    @JsonManagedReference
     private UsuarioModel usuario;
     public LoginModel() {
 
@@ -30,6 +33,7 @@ public class LoginModel {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", usuario=" + usuario +
                 '}';
     }
 

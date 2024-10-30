@@ -38,8 +38,8 @@ CREATE TABLE `petrg`.`pets` (
                                 `weight_pet`      DOUBLE NOT NULL,
                                 `observation`     TEXT NOT NULL,
                                 `photo`           VARCHAR(255) NOT NULL,
-                                `castrated_date`  DATE NOT NULL,
-                                `life_animal`     VARCHAR(255) NOT NULL,
+                                `castrated_date`  DATE  NULL,
+                                `life_animal`     VARCHAR(255)  NULL,
                                 `usuario_id`      INT,
                                 CONSTRAINT fk_usuario FOREIGN KEY (`usuario_id`) REFERENCES `petrg`.`usuarios` (`id`) ON DELETE CASCADE
 );

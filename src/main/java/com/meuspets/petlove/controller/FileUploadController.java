@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -22,13 +21,11 @@ public class FileUploadController {
             File directory = new File(dir);
             if(!directory.exists()){
                 boolean dirCreated = directory.mkdir();
-                System.out.println("Diretório criado: " + dirCreated);
             }
             File destinationFile = new File(dir + file.getOriginalFilename());
             file.transferTo(destinationFile);
             return ResponseEntity.ok("Imagem enviada com sucesso!");
         } catch (IOException e){
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Falha no upload da imagem.");
 
         }

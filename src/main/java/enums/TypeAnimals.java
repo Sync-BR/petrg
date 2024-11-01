@@ -10,21 +10,7 @@ public enum TypeAnimals {
         this.value = ordinal();
 
     }
-    TypeAnimals(int value) {
-        this.value = value;
-        this.animal = values()[value].toString();
 
-    }
-
-    public static String fromOrdinal(int index) {
-        for (TypeAnimals type : TypeAnimals.values()) {
-            if (type.ordinal() == index) {
-                String raca = type.name();
-                return raca ;
-            }
-        }
-        throw new IllegalArgumentException("Índice não encontrado: " + index);
-    }
 
     public String getAnimal() {
         return animal;

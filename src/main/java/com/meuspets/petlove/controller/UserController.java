@@ -41,7 +41,6 @@ public class UserController extends UserService {
 
 
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/create/user")
     public ResponseEntity<HttpStatus> registerUser(@RequestBody UsuarioModel user) throws UsuarioHanding {
         System.out.println(user);
@@ -53,6 +52,15 @@ public class UserController extends UserService {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
+    }
+    @PostMapping("/update/user/")
+    public ResponseEntity<HttpStatus> updateProfile(@RequestBody UsuarioModel user) throws UsuarioHanding {
+        System.out.println("usuario informado: " + user);
+        if(checkDateToUpdate(user)) {
+            usuarioRepository.save(user);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
 }

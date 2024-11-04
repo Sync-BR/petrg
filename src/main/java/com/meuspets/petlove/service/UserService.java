@@ -2,8 +2,18 @@ package com.meuspets.petlove.service;
 
 import com.meuspets.petlove.handling.UsuarioHanding;
 import com.meuspets.petlove.model.LoginModel;
+import com.meuspets.petlove.model.UsuarioModel;
 
 public class UserService {
+    //Check data to update
+    public boolean checkDateToUpdate(UsuarioModel usuario) throws UsuarioHanding {
+        if (usuario.getSurname() != null && usuario.getTelephone() != null)
+            return true;
+        throw new UsuarioHanding("Dados nullos");
+
+
+    }
+
     /*
      *This function checks if all fields are null and handles the error.
      */

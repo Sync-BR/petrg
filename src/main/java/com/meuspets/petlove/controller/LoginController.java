@@ -28,7 +28,6 @@ public class LoginController extends UserService {
     @GetMapping("/getUserById/{username}")
     public ResponseEntity<LoginModel> getUser(@PathVariable String username) {
         LoginModel loginModel = loginRepository.findByUsername(username);
-        System.out.println(loginModel);
         return new ResponseEntity<>(loginModel, HttpStatus.OK);
     }
     @CrossOrigin(origins = "http://localhost:4200")
